@@ -50,9 +50,9 @@ with col2:
         <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-bottom:12px;">
         <strong>02 · Rent Control: Encadrement des Loyers</strong><br>
         <span style="color:#6b7280; font-size:0.85rem;">opendata.paris.fr · Updated annually in July</span><br><br>
-        Legal rent thresholds per quartier and room count, set by the City of Paris since 2019.
-        Contains reference rent, minimum and maximum rent per m² for each of the 80 rent-control zones.<br><br>
-        <strong>320 rows · 80 quartiers × 4 room categories</strong>
+        Legal rent thresholds per rent-control zone, construction period, furnished/unfurnished status, and room count, set by the City of Paris since 2019.
+        Contains reference rent, minimum and maximum rent per m² for each of the 14 rent-control zones.<br><br>
+        <strong>320 rows · 14 zones × 4 room categories</strong>
         </div>
         """, unsafe_allow_html=True,
     )
