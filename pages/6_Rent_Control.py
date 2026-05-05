@@ -8,8 +8,16 @@ import json
 from shapely.geometry import shape
 import plotly.express as px
 import plotly.io as pio
-
 from data_loader import load_dvf, load_rent
+
+# -------------------------
+# Page config
+# -------------------------
+st.set_page_config(
+    page_title="Rent Control Analysis",
+    page_icon="📊",
+    layout="wide",
+)
 
 # -------------------------
 # Global plot style
