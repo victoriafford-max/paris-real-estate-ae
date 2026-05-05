@@ -37,9 +37,11 @@ in March 2026, France24 reported that the *"capital's housing crisis could deter
 city's next mayor."*
 
 Historically, rent caps have been one intervention for ensuring fair access to affordable
-housing. In Paris they were reinstated most recently in 2019. This project examines the
-relationship between property transaction prices, rent-control benchmarks, and urban
-green-space availability across Paris's 20 arrondissements.
+housing. In Paris, they were reinstated most recently in 2019. Additionally, Paris joins other big 
+cities that are investing in infrastructure that enhances quality of life, particularly 
+by expanding and improving access to urban green spaces. **Using Paris's Open Data sources,
+this project looks at relationship between property transaction prices, rent controls, and urban
+green-space availability across Paris.**
     """)
 
 with col_right:
