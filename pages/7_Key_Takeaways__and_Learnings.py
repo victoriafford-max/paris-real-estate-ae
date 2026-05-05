@@ -63,7 +63,8 @@ st.markdown("---")
 
 st.header("Challenges and Lessons Learned")
 st.markdown("""
-/n
+
+
 **Manual Uploads Slow Pipeline and Increase Risk of Error**	
 
 * :toolbox:  The main weakness of our ETL pipeline is the manual uploads involved at multiple steps in the pipeline. 
