@@ -71,10 +71,6 @@ with q1:
         How do actual transaction prices per m² compare to the legal rent-control reference
         values across Paris's quartiers?
         </div>
-        <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px;">
-        <strong>Geographic Variation</strong><br>
-        Which arrondissements show the largest gap between market prices and rent benchmarks?
-        </div>
         """,
         unsafe_allow_html=True,
     )
@@ -90,62 +86,6 @@ with q2:
         unsafe_allow_html=True,
     )
 
-st.markdown("---")
-
-# ── Dashboard pages ───────────────────────────────────────────────────────────
-st.subheader("Dashboard Pages")
-
-r1c1, r1c2 = st.columns(2)
-r2c1, r2c2 = st.columns(2)
-
-with r1c1:
-    st.markdown(
-        """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
-        <strong>Data Sources</strong><br>
-        <span style="color:#6b7280; font-size:0.9rem;">
-        Four public datasets from the French government and the City of Paris. Scope, limitations,
-        and pre-processing decisions.
-        </span>
-        </div>
-        """, unsafe_allow_html=True,
-    )
-with r1c2:
-    st.markdown(
-        """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
-        <strong>Data Modeling</strong><br>
-        <span style="color:#6b7280; font-size:0.9rem;">
-        From 3NF to Star Schema — schema design decisions, the full ER diagram, and key
-        trade-offs made for analytical usability.
-        </span>
-        </div>
-        """, unsafe_allow_html=True,
-    )
-with r2c1:
-    st.markdown(
-        """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-top:12px;">
-        <strong>ETL / ELT Pipeline</strong><br>
-        <span style="color:#6b7280; font-size:0.9rem;">
-        End-to-end pipeline from raw CSVs to a Snowflake Star Schema — extraction, transformation,
-        loading, and lessons learned.
-        </span>
-        </div>
-        """, unsafe_allow_html=True,
-    )
-with r2c2:
-    st.markdown(
-        """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-top:12px;">
-        <strong>Analysis</strong><br>
-        <span style="color:#6b7280; font-size:0.9rem;">
-        Interactive map of sale prices and rent-control zones. Price distributions, arrondissement
-        comparisons, and green-space relationships.
-        </span>
-        </div>
-        """, unsafe_allow_html=True,
-    )
 
 st.markdown("---")
 st.caption("Paris Real Estate • Stefania Licciardi • Victoria Ford • Andrés Lill • May 2026")
