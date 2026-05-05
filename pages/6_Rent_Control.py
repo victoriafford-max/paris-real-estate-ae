@@ -199,8 +199,10 @@ fig0.update_traces(
 # Scatter plot
 # -----------------------
 
-st.header("How do actual transaction prices per m² compare to reference rent values?")
-st.caption("Each point represents the median reference rent by quarter and room count, sized by the number of transactions. The color gradient indicates median price levels, revealing how market values align with reference rent values.")
+st.header("How do median transaction prices per m² compare to reference rent values?")
+st.caption("""
+Each point represents the median reference rent by quarter and room count, sized by the number of transactions. The color gradient indicates median price levels. Filtering for a specific **number of rooms** more clearly shows the relationship between the two variables.
+""")
 
 # Create figure
 fig1 = px.scatter(
@@ -237,7 +239,7 @@ st.plotly_chart(fig1, use_container_width=True)
 
 # Add question header
 st.header("How do property prices vary across rent control levels?")
-st.caption("Properties are categorized into quartiles based on their reference rent values.")
+st.caption("Here, median prices are categorized into quartiles based on their reference rent values. As with the previous plot, defining the room type shows a clearer relationship between property price and rent control level.")
 
 df["rent_bin"] = pd.qcut(
     df["reference_rent"],
@@ -313,12 +315,12 @@ st.markdown("---")
 st.header("Observations & Insights")
 
 st.info("""
-**Classic case of supply & demand**: Reference rents tend to be higher for 1-room properties, reflecting high demand for small, affordable units in the city, e.g. for students or tourists.
+**Classic case of supply & demand**: Reference rents tend to be higher for 1-room properties, reflecting high demand for small, more affordable units in the city, e.g. for students or tourists.
 
-**Low Reference Rents are connected to Low Property Prices, but other factors count**: 
-Overall, we see that we see that lower reference rent values are connected to lower property prices, but there is a lot of overlap in property prices across levels, suggesting that factors beyond rent control heavily influence property values (such as location).
+**Low reference Rents are connected to low property prices, but other factors count**: 
+Overall, we see that we see that lower reference rents are connected to lower property prices, but there is a lot of overlap in property prices across levels. This suggests that factors beyond rent control heavily influence property values (such as location).
 
-**Owners hold on to smaller properties**: Properties with higher rent controls tend to have lower transaction volumes. In the case of 1-room properties, this may reflect a preference for holding onto smaller units rather than selling them. Higher transaction volumes can indicate a more active and liquid real estate market.
+**Owners hold on to smaller properties in popular areas**: Properties with higher reference rents tend to have lower transaction volumes. In the case of 1-room properties, this may reflect a preference for holding onto smaller units rather than selling them. On the other hand, higher transaction volumes can indicate a more active and liquid real estate market.
 
 """)
 
