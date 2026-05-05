@@ -35,12 +35,16 @@ st.caption(
 # -------------------------
 #  Conclusions of the analysis
 # -------------------------
+st.markdown("---") 
+
 st.header("Key Takeaways from the Data")
 st.markdown("...")
 
 # -------------------------
 #  Assessment of goal achievement
 # -------------------------
+st.markdown("---") 
+
 st.header("Did we achieve our project objectives?")
 st.markdown("""
 We laid the technical foundation for monitoring property values and rent control data, achieving most of our objectives:   
@@ -55,6 +59,8 @@ We laid the technical foundation for monitoring property values and rent control
 # -------------------------
 #  Challenges and Lessons Learned
 # -------------------------
+st.markdown("---") 
+
 st.header("Challenges and Lessons Learned")
 st.markdown("""
 
