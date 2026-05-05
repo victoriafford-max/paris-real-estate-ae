@@ -59,7 +59,7 @@ with r1c1:
         <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
         <strong>Manual Uploads Slow Pipeline and Increase Risk of Error</strong><br>
         <span style="color:#6b7280; font-size:0.9rem;">
-        
+        <br>
         <p> 🛠  The main weakness of our ETL pipeline is the manual uploads involved at multiple steps in the pipeline. 
         
         <p> ✅  To ensure consistency, there are checkpoints along the way were necessary data uploads are flagged.
