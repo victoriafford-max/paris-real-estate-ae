@@ -1,5 +1,3 @@
-kannst du mir den neuen code fixen und mir den kompletten neuen gefixten code geben!
-
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
