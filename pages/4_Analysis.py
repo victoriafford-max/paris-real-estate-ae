@@ -1,29 +1,55 @@
 import streamlit as st
+
 import folium
+
 from streamlit_folium import st_folium
+
 import pandas as pd
+
 import geopandas as gpd
+
 import numpy as np
+
 import json
+
 import os
+
 from pathlib import Path
+
 from shapely.geometry import shape
+
 from shapely.wkt import loads as wkt_loads
+
 import branca.colormap as cm
+
 import matplotlib.pyplot as plt
+
 import matplotlib.colors as mcolors
+
 from matplotlib.colorbar import ColorbarBase
-from data_loader import load_dvf, load_rent, load_green, load_planned
+
+from data_loader import load_dvf, load_rent, load_planned
 
 st.set_page_config(
+
     page_title="Analysis",
+
     layout="wide",
+
 )
 
-#  Load data 
-dvf_raw  = load_dvf()
+#  Load data
+
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+
+DATA_DIR = PROJECT_DIR / "data"
+
+dvf_raw = load_dvf()
+
 rent_raw = load_rent()
-green_raw = load_green()
+
+green_raw = pd.read_csv(DATA_DIR / "green_spaces.csv")
+
 plan_raw = load_planned()
 
 n_ok = (dvf_raw["data_quality_flag"] == "ok").sum()
