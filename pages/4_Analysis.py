@@ -101,11 +101,17 @@ def compute_dvf_stats(_dvf_df, _q_gdf):
 
 @st.cache_data
 def build_green_gdf(_green_df):
+    # geo_shape uses single quotes (Python dict repr) — use ast.literal_eval, not json.loads
+    import ast
     filtered = _green_df[_green_df["polygon_area"] > 500].copy()
     geoms, idx_keep = [], []
     for idx, row in filtered.iterrows():
         try:
-            geoms.append(wkt_loads(str(row["geometry"])))
+            geo = ast.literal_eval(row["geo_shape"])
+            if geo.get("type") == "Feature":
+                geoms.append(shape(geo["geometry"]))
+            else:
+                geoms.append(shape(geo))
             idx_keep.append(idx)
         except Exception:
             pass
@@ -396,12 +402,8 @@ st.markdown(
     "Then search within the filtered results or select a transaction from the dropdown."
 )
 
-# Work only with DVF records that are useful for selection.
-# Keep flagged rows visible, but remove rows without a basic identifier/address.
 transaction_df = dvf_raw.copy()
 
-# Add a robust arrondissement column for filtering.
-# Prefer an existing arrondissement column. Otherwise derive it from postal_code if available.
 if "arrondissement" not in transaction_df.columns:
     if "postal_code" in transaction_df.columns:
         transaction_df["arrondissement"] = (
@@ -416,7 +418,6 @@ if "arrondissement" not in transaction_df.columns:
     else:
         transaction_df["arrondissement"] = np.nan
 
-# Add date helper columns for filtering and stable ordering.
 if "transaction_date" in transaction_df.columns:
     transaction_df["transaction_date_sort"] = pd.to_datetime(
         transaction_df["transaction_date"], errors="coerce"
@@ -424,7 +425,6 @@ if "transaction_date" in transaction_df.columns:
     transaction_df["transaction_month"] = transaction_df["transaction_date_sort"].dt.month
     transaction_df["transaction_month_label"] = transaction_df["transaction_date_sort"].dt.strftime("%B")
 
-# labels for internal data-quality flags.
 quality_label_map = {
     "ok": "Clean records only",
     "price_per_sqm_high": "Flagged: unusually high price per m²",
@@ -435,7 +435,6 @@ quality_label_map = {
 def format_quality_label(flag):
     return quality_label_map.get(str(flag), str(flag).replace("_", " ").title())
 
-# Property type to prevent apartments, houses, outbuildings, and commercial records from being mixed in one long list.
 filter_col1, filter_col2, filter_col3, filter_col4 = st.columns(4)
 
 with filter_col1:
@@ -456,7 +455,6 @@ with filter_col2:
         "Property type",
         options=["All"] + property_values,
         format_func=lambda x: "All property types" if x == "All" else x,
-        help="Use this to focus the transaction list on apartments, houses, outbuildings, or commercial records.",
     )
 
 with filter_col3:
@@ -472,7 +470,6 @@ with filter_col3:
         options=["All"] + quality_values + extra_quality_values,
         index=1 if "ok" in quality_values else 0,
         format_func=lambda x: "All records" if x == "All" else format_quality_label(x),
-        help="Clean records passed the basic quality checks. Flagged records are kept available for review but are excluded from the map layer.",
     )
 
 with filter_col4:
@@ -495,7 +492,6 @@ with filter_col4:
         "Transaction month",
         options=month_options,
         format_func=lambda x: "All months" if x == "All" else month_label_map.get(int(x), str(x)),
-        help="Filter transactions to a specific month in 2025.",
     )
 
 filtered_transactions = transaction_df.copy()
@@ -528,23 +524,15 @@ search_query = st.text_input(
 if search_query and len(search_query.strip()) >= 2:
     q = search_query.strip().upper()
     searchable_cols = [
-        c for c in [
-            "address",
-            "transaction_key",
-            "transaction_date",
-            "property_type",
-            "postal_code",
-        ]
+        c for c in ["address", "transaction_key", "transaction_date", "property_type", "postal_code"]
         if c in filtered_transactions.columns
     ]
-
     if searchable_cols:
         mask = pd.Series(False, index=filtered_transactions.index)
         for col in searchable_cols:
             mask = mask | filtered_transactions[col].fillna("").astype(str).str.upper().str.contains(q, regex=False)
         filtered_transactions = filtered_transactions[mask]
 
-# Sort the underlying filtered results before showing/selecting them.
 filtered_transactions = filtered_transactions.copy()
 if "transaction_date_sort" in filtered_transactions.columns:
     filtered_transactions = filtered_transactions.sort_values(
@@ -553,23 +541,14 @@ if "transaction_date_sort" in filtered_transactions.columns:
 
 st.caption(f"{len(filtered_transactions):,} matching transaction(s)")
 
-# Add a cleaner user-facing quality label for tables and details.
 if "data_quality_flag" in filtered_transactions.columns:
     filtered_transactions["data_quality"] = filtered_transactions["data_quality_flag"].apply(format_quality_label)
 
-# Show preview table
 preview_cols = [
     c for c in [
-        "transaction_date",
-        "address",
-        "arrondissement",
-        "property_type",
-        "surface_area",
-        "room_count",
-        "property_value",
-        "price_per_sqm",
-        "data_quality",
-        "transaction_key",
+        "transaction_date", "address", "arrondissement", "property_type",
+        "surface_area", "room_count", "property_value", "price_per_sqm",
+        "data_quality", "transaction_key",
     ]
     if c in filtered_transactions.columns
 ]
@@ -577,24 +556,19 @@ preview_cols = [
 if filtered_transactions.empty:
     st.info("No transactions found. Try changing the filters or using a broader search term.")
 else:
-    # Keep the preview lightweight and user-friendly. For larger result sets, users
-    # should filter/search rather than loading thousands of rows into the preview.
-    row_options = [25, 50, 100, 250, 500, 1000]
-    row_options = [n for n in row_options if n <= len(filtered_transactions)]
-    if len(filtered_transactions) not in row_options and len(filtered_transactions) < 25:
-        row_options.append(len(filtered_transactions))
+    row_options = [n for n in [25, 50, 100, 250, 500, 1000] if n <= len(filtered_transactions)]
+    if not row_options:
+        row_options = [len(filtered_transactions)]
 
     preview_limit = st.selectbox(
         "Rows shown in preview",
         options=row_options,
-        index=min(2, len(row_options) - 1),  # Default to 100 rows when available
-        help="Choose how many rows to display. Use the filters or search box to narrow larger result sets.",
+        index=min(2, len(row_options) - 1),
     )
 
     preview = filtered_transactions[preview_cols].head(preview_limit).copy()
     st.dataframe(preview, use_container_width=True, hide_index=True)
 
-    # Create dropdown labels
     selection_limit = min(500, len(filtered_transactions))
     selection_df = filtered_transactions.head(selection_limit).copy()
 
@@ -612,12 +586,10 @@ else:
         "Select a transaction",
         options=selection_df.index.tolist(),
         format_func=format_transaction_option,
-        help="",
     )
 
     selected_row = selection_df.loc[selected_idx]
 
-    # Spatial join to get quarter_id for the selected result.
     selected_with_quarter = selected_row.copy()
     if pd.notna(selected_row.get("lon")) and pd.notna(selected_row.get("lat")):
         selected_gdf = gpd.GeoDataFrame(
