@@ -39,7 +39,7 @@ st.set_page_config(
 st.title("Rent Control Analysis")
 st.caption(
     "This page dives deeper into the relationship between property transaction data and rent controls in Paris in 2025. "
-    "The ***quartiers*** of Paris are assigned to one of the city's 14 rent control zones. Properties are located within one of these zones using a spatial point-in-polygon join."
+    "The *quartiers* of Paris are assigned to one of the city's 14 rent control zones. Properties are located within one of these zones using a spatial point-in-polygon join."
 )
 
 
