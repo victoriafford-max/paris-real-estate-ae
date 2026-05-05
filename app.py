@@ -23,15 +23,6 @@ st.title("Real Estate in Paris 2025")
 
 st.markdown("---")
 
-# ── KPIs ──────────────────────────────────────────────────────────────────────
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("Transactions", f"{total_transactions:,}")
-col2.metric("Median Price / m²",         f"€{median_price:,.0f}")
-col3.metric("Avg. Reference Rent",       f"€{avg_ref_rent:.2f} /m²")
-col4.metric("Existing Green Spaces",     f"{n_green_spaces:,}")
-
-st.markdown("---")
-
 # ── Context ───────────────────────────────────────────────────────────────────
 st.subheader("Project Context")
 
