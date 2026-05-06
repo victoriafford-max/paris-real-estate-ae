@@ -213,7 +213,7 @@ with col1:
         """
         <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px;">
         <strong>Platform</strong><br>
-        Snowflake (shared team account)<br>
+        Snowflake <br>
         Database: PARIS_REALESTATE<br>
         Schemas: PUBLIC (raw) + STAR (final)
         </div>
