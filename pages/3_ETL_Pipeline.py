@@ -15,7 +15,7 @@ if pipeline_img.exists():
     st.image(str(pipeline_img), use_container_width=True)
 else:
     st.warning("Pipeline overview image not found. Expected: assets/pipeline_overview.png")
-
+st.markdown("---")
 
 
 # Pipeline steps
