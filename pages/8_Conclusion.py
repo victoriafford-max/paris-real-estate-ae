@@ -64,7 +64,7 @@ with col2:
         <div style="margin-bottom:20px;">
             <strong style="font-size:1.05rem;">Low market liquidity in central areas</strong>
             <div style="color:#6b7280; font-size:0.95rem; margin-top:8px;">
-                Low market liquidity central areas: High reference rent zones tend to have lower transaction volumes. 
+                High reference rent zones tend to have lower transaction volumes. 
                 In the case of 1-room properties, this may reflect an owner's preference for holding onto smaller, centrally located units.
             </div>
         </div>
