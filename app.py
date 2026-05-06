@@ -54,7 +54,7 @@ with col_right:
     if paris_path.exists():
         st.image(str(paris_path), use_container_width=True)
     else:
-        st.warning("Image not found. Place paris_housing.png in the assets/ folder.")
+        st.warning("Image not found. Place paris_housing.jpg in the assets/ folder.")
     st.caption("Free image by Andreas Weilguny accessed via Unsplash (2025)")
       
     
