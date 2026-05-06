@@ -5,6 +5,7 @@ from pathlib import Path
 st.set_page_config(
     page_title="Paris Real Estate",
     layout="wide",
+    page_icon=":information_source:",
 )
 
 # ── Load data for KPIs ────────────────────────────────────────────────────────
@@ -45,7 +46,7 @@ green-space availability across Paris.**
 
 with col_right:
     ASSETS_DIR = Path(__file__).parent / "assets"
-    paris_path = ASSETS_DIR / "paris.png"
+    paris_path = ASSETS_DIR / "paris.jpg"
     st.markdown("<div style='margin-top:20px'></div>", unsafe_allow_html=True)
     if paris_path.exists():
         st.image(str(paris_path), use_container_width=True)
