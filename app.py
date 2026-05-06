@@ -25,11 +25,11 @@ st.title("Real Estate in Paris in 2025")
 st.markdown("---")
 
 # ── Context ───────────────────────────────────────────────────────────────────
-st.subheader("Project Context")
 
 col_left, col_right = st.columns([3, 2])
 
 with col_left:
+    st.subheader("Project Context")
     st.markdown("""
 Fluctuations in the housing market can have major social, economic, and political impacts.
 In recent years, organisations like the World Economic Forum and the European Parliament
