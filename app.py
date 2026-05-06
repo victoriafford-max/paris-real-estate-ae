@@ -20,7 +20,7 @@ avg_ref_rent     = rent["reference_rent"].mean()
 n_green_spaces   = len(green)
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.title("Real Estate in Paris 2025")
+st.title("Real Estate in Paris in 2025")
 
 st.markdown("---")
 
