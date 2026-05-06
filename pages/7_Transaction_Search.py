@@ -9,6 +9,7 @@ from data_loader import load_dvf, load_rent
 st.set_page_config(
     page_title="Transaction Search",
     layout="wide",
+    page_icon=":mag_right:"
 )
 
 #  Load data
