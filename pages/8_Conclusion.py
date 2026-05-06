@@ -40,21 +40,20 @@ st.markdown("---")
 st.header("Key findings from the data")
 
 col1, col2 = st.columns(2)
-with col1:
-    st.info("""
+with col2:
+    st.markdown("""
     **High reference rent values follow high property prices**: 
     The high demand, short supply of small, centrally located units translates to higher prices in both the sale and rental markets.   
         """)
-    st.info("""
+    st.markdown("""
     **Low market liquidity central areas**: 
     High reference rent zones tend to have lower transaction volumes. In the case of 1-room properties, this may reflect an owner's preference for holding onto smaller, centrally located units.
     """)
-with col2:
-    st.info("""
-        **The most expensive living areas aren't the most green**: \n
+    st.markdown("""
+        **The most expensive living areas aren't the most green**:
         Location and centrality are stronger price drivers, while green spaces provide useful additional context.
         """)
-    
+with col1:
     ASSETS_DIR = Path(__file__).parent.parent / "assets"
     etl_path = ASSETS_DIR / "ETL.png"
 
