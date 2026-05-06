@@ -106,12 +106,12 @@ with r2c1:
             margin-bottom:20px;
             line-height:1.6;
         ">
-        <strong style="font-size:1.05rem;">Joining Geographic Data</strong><br>
+        <strong style="font-size:1.05rem;">Managing geospacial data</strong><br>
 
         <div style="color:#6b7280; font-size:0.95rem; margin-top:12px;">
         <p>🛠  One significant challenge we faced is how to integrate geographic data into our schema. Since the relationships between variables are spacial, a traditional primary key / foreign key relationship isn't applicable.</p>
         <p>✅  Since the scope of our project didn't require a full geospatial schema, our simplified hybrid star model sufficed.</p>
-        <p>💡  To further develop the geospatial layer, one could create a non-relational database for the geospatial table elements. Along with other providers, Snowflake also supports storing and querying geospatial formats.</p>
+        <p>💡  To further develop the geospatial layer, one could create a non-relational database for the geospatial table elements. Along with tools like PostGIS or MongoDB, Snowflake also supports storing and querying geospatial formats.</p>
         </div>
         </div>
         """,
