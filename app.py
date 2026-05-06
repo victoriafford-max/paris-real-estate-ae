@@ -45,19 +45,22 @@ green-space availability across Paris.**
     """)
 
 with col_right:
-    st.markdown(
-        """
-        <div style="background:#f0f4ff; border-left:5px solid #3b6fd4; padding:16px 20px; border-radius:6px;">
-        <strong>Project Objective</strong><br><br>
-        <span style="font-size:0.95rem; color:#1f2937;">
-        Lay the technical foundation for monitoring property values and rent-cap data provided
-        by the City of Paris, including a robust database schema, an efficient ETL pipeline,
-        and analytical visualisations tracking key metrics and patterns.
-        </span>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    
+
+st.markdown("---")
+
+st.markdown("""
+<div style="background:#f0f4ff; border-left:5px solid #3b6fd4; padding:16px 20px; border-radius:6px;">
+<strong>Project Objective</strong><br><br>
+<span style="font-size:0.95rem; color:#1f2937;">
+Lay the technical foundation for monitoring property values and rent-cap data provided
+by the City of Paris, including a robust database schema, an efficient ETL pipeline,
+and analytical visualisations tracking key metrics and patterns.
+</span>
+</div>
+""",
+unsafe_allow_html=True,
+)
 
 st.markdown("---")
 
@@ -70,8 +73,7 @@ with q1:
         """
         <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px; margin-bottom:12px;">
         <strong>Price vs. Rent Control</strong><br>
-        How do actual transaction prices per m² compare to the legal rent-control reference
-        values across Paris's quartiers?
+        How do actual transaction prices per m² compare to the legal rent control values across Paris?
         </div>
         """,
         unsafe_allow_html=True,
