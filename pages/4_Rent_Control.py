@@ -158,11 +158,12 @@ df = df.dropna(subset=["reference_rent", "median_price"])
 # -------------------------
 # KPI row & Data Preview
 # -------------------------
-c1, c2, c3 = st.columns(3)
+c1, c2, c3, c4 = st.columns(4)
 
 c1.metric("Zones analyzed", len(rent_raw['zone_id'].unique()))
-c2.metric("Median property price (€/m²)", f"{dvf_raw["price_per_sqm"].median():,.0f}")
+c2.metric("Min. rent (€/m²)", f"{rent_raw["min_rent"].min():.2f}")
 c3.metric("Median reference rent (€/m²)", f"{rent_raw['reference_rent'].median():.2f}")
+c4.metric("Max. rent (€/m²)", f"{rent_raw["max_rent"].max():.2f}")
 
 st.markdown("---")
 
