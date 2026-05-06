@@ -188,11 +188,7 @@ fig0 = px.bar(
     labels={'room_count': 'Number of Rooms', 'median_rent': 'Reference Rent (€/m²)'},
 )
 
-# Update figure axes to display only integer values
-fig0.update_xaxes(
-    type="category",
-    categoryorder="array",
-    categoryarray=[1, 2, 3, 4]
+# Plot barchart
 st.plotly_chart(fig0, width='content')
 
 # Update hover template (tooltoip) to show all info
