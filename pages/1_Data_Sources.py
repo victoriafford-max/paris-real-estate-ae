@@ -34,7 +34,7 @@ with col1:
     )
     st.markdown(
         """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
+        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; background-color:#D9FADA">
         <strong>03 · Existing Green Spaces</strong><br>
         <span style="color:#6b7280; font-size:0.85rem;">opendata.paris.fr · Département des Espaces Verts</span><br><br>
         Inventory of all public green spaces in Paris: parks, gardens, promenades, tree pits,
@@ -47,7 +47,7 @@ with col1:
 with col2:
     st.markdown(
         """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-bottom:12px;">
+        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-bottom:12px; background-color:#D9E2FA">
         <strong>02 · Rent Control: Encadrement des Loyers</strong><br>
         <span style="color:#6b7280; font-size:0.85rem;">opendata.paris.fr · Updated annually in July</span><br><br>
         Legal rent thresholds per quartier and room count, set by the City of Paris since 2019.
@@ -58,7 +58,7 @@ with col2:
     )
     st.markdown(
         """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
+        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; background-color:#D9FADA">
         <strong>04 · Planned Green Spaces</strong><br>
         <span style="color:#6b7280; font-size:0.85rem;">opendata.paris.fr · Département des Espaces Verts</span><br><br>
         Pipeline of planned urban greening projects by arrondissement and sector.
