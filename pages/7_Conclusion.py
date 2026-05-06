@@ -52,6 +52,7 @@ st.markdown("---")
 st.header("Challenges and solutions looking forward")
 
 r1c1, r1c2 = st.columns(2)
+r2c1, r2c2 = st.columns(2)
 
 with r1c1:
     st.markdown(
@@ -69,7 +70,16 @@ with r1c1:
         </div>
         """, unsafe_allow_html=True,
     )
+
 with r1c2:
+    etl_path = ASSETS_DIR / "ETL.png"
+        if schema_path.exists():
+            st.image(str(etl_path), use_container_width=True)
+        else:
+            st.warning("Image not found. Place ETL.png in the assets/ folder.")
+
+
+with r2c1:
     st.markdown(
         """
         <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
