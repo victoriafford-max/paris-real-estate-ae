@@ -160,6 +160,8 @@ def render_dashboard():
         "Unlike the interactive map, it focuses on arrondissement-level comparisons."
     )
 
+    st.header("Do arrondissements with more green spaces tend to have higher property prices?")
+
     df = prepare_dataset()
 
     c1, c2, c3 = st.columns(3)
@@ -222,4 +224,5 @@ if __name__ == "__main__":
         print("Install with: pip install streamlit plotly pandas")
     else:
         run_streamlit_app()
+
 
