@@ -55,15 +55,15 @@ with col2:
         """)
 with col1:
     ASSETS_DIR = Path(__file__).parent.parent / "assets"
-    etl_path = ASSETS_DIR / "ETL.png"
+    map_path = ASSETS_DIR / "map.png"
 
     # Add spacing above image
     st.markdown("<div style='margin-top:20px'></div>", unsafe_allow_html=True)
 
-    if etl_path.exists():
-        st.image(str(etl_path), use_container_width=True)
+    if map_path.exists():
+        st.image(str(map_path), use_container_width=True)
     else:
-        st.warning("Image not found. Place ETL.png in the assets/ folder.")
+        st.warning("Image not found. Place map.png in the assets/ folder.")
 
 
 
