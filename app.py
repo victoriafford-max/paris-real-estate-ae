@@ -35,15 +35,11 @@ with col_left:
     st.markdown("""
 Fluctuations in the housing market can have major social, economic, and political impacts.
 In recent years, organisations like the World Economic Forum and the European Parliament
-have spoken of a wide-sweeping **housing crisis**. Leading up to Paris's mayoral election
-in March 2026, France24 reported that the *"capital's housing crisis could determine the
-city's next mayor."*
+have spoken of a wide-sweeping **housing crisis**. 
 
-Historically, rent caps have been one intervention for ensuring fair access to affordable
-housing. In Paris, they were reinstated most recently in 2019. Additionally, Paris joins other big 
-cities that are investing in infrastructure that enhances quality of life, particularly 
-by expanding and improving access to urban green spaces. **Using Paris's Open Data sources,
-this project looks at relationship between property transaction prices, rent controls, and urban
+Rent levels and proximity to green spaces can be indicators of the supply and quality and 
+accessibility of affordable housing. **Using Paris's Open Data sources, this project looks 
+at relationship between property transaction prices, rent controls, and urban
 green-space availability across Paris.**
     """)
 
