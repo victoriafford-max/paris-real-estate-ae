@@ -41,18 +41,32 @@ st.header("Key findings from the data")
 
 col1, col2 = st.columns(2)
 with col2:
-    st.markdown("""
-    **High reference rent values follow high property prices**: 
-    The high demand, short supply of small, centrally located units translates to higher prices in both the sale and rental markets.   
-        """)
-    st.markdown("""
-    **Low market liquidity central areas**: 
-    High reference rent zones tend to have lower transaction volumes. In the case of 1-room properties, this may reflect an owner's preference for holding onto smaller, centrally located units.
-    """)
-    st.markdown("""
-        **The most expensive living areas aren't the most green**:
+     st.markdown(
+        """
+        <div style="
+            border:1px solid #e5e7eb;
+            border-radius:10px;
+            padding:22px;
+            margin-bottom:20px;
+            line-height:1.6;
+        ">
+        <strong style="font-size:1.05rem;">Managing geospacial data</strong><br>
+
+        <div style="color:#6b7280; font-size:0.95rem; margin-top:12px;">
+        **High reference rent values follow high property prices**: 
+        The high demand, short supply of small, centrally located units translates to higher prices in both the sale and rental markets.   
+
+         <p>**Low market liquidity central areas**: 
+         High reference rent zones tend to have lower transaction volumes. In the case of 1-room properties, this may reflect an owner's preference for holding onto smaller, centrally located units.
+
+         <p>**The most expensive living areas aren't the most green**:
         Location and centrality are stronger price drivers, while green spaces provide useful additional context.
-        """)
+        </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    
 with col1:
     ASSETS_DIR = Path(__file__).parent.parent / "assets"
     map_path = ASSETS_DIR / "map.png"
