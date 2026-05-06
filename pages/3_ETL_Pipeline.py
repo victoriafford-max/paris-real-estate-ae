@@ -225,8 +225,8 @@ with col2:
         <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px;">
         <strong>Tables loaded</strong><br>
         DIM_DATE · DIM_LOCATION<br>
-        DIM_ARRONDISSEMENT · DIM_PROPERTY_TYPE<br>
-        FACT_TRANSACTION · (DIM_QUARTER pending)
+        DIM_ARRONDISSEMENT · DIM_PROPERTY_TYPE<br> DIM_QUARTER
+        · FACT_TRANSACTION 
         </div>
         """, unsafe_allow_html=True,
     )
