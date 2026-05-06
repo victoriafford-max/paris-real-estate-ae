@@ -38,10 +38,10 @@ Fluctuations in the housing market can have major social, economic, and politica
 In recent years, organisations like the World Economic Forum and the European Parliament
 have spoken of a wide-sweeping **housing crisis**. 
 
-Rent levels and proximity to green spaces can be indicators of the supply and quality and 
-accessibility of affordable housing. **Using Paris's Open Data sources, this project looks 
+Rent levels and proximity to green spaces can be indicators of the supply and accessibility 
+of affordable housing. **Using Paris's Open Data sources, this project looks 
 at relationship between property transaction prices, rent controls, and urban
-green-space availability across Paris.**
+green space availability across Paris.**
     """)
 
 with col_right:
