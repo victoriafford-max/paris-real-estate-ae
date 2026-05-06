@@ -148,6 +148,16 @@ with r1c2:
 st.markdown("<br><br>", unsafe_allow_html=True)
 
 with r2c1:
+    geo_path = ASSETS_DIR / "geo.webp"
+
+    st.markdown("<div style='margin-top:20px'></div>", unsafe_allow_html=True)
+
+    if geo_path.exists():
+        st.image(str(geo_path), use_container_width=True)
+    else:
+        st.warning("Image not found. Place geo.png in the assets/ folder.")
+
+with r2c2:
     st.markdown(
         """
         <div style="
@@ -168,13 +178,3 @@ with r2c1:
         """,
         unsafe_allow_html=True,
     )
-
-with r2c2:
-    geo_path = ASSETS_DIR / "geo.webp"
-
-    st.markdown("<div style='margin-top:20px'></div>", unsafe_allow_html=True)
-
-    if geo_path.exists():
-        st.image(str(geo_path), use_container_width=True)
-    else:
-        st.warning("Image not found. Place geo.png in the assets/ folder.")
