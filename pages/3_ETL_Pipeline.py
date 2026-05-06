@@ -53,7 +53,7 @@ df = df[df['code_postal'].between(75001, 75020)]
 print(f"Loaded: {len(df):,} rows")""", language="python")
 
     with col2:
-        st.markdown("**Rent Control — API pagination**")
+        st.markdown("**Rent Control: API pagination**")
         st.code("""import requests
 
 base = "https://opendata.paris.fr/api/explore/v2.1"
