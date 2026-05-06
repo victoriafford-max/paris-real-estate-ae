@@ -28,7 +28,7 @@ st.markdown("---")
 
 col_left, col_right = st.columns([3, 2])
 with col_left:
-    st.markdown("<br><br>")
+    st.markdown("\n\n\n")
     st.subheader("Project Context")
     st.markdown("""
 Fluctuations in the housing market can have major social, economic, and political impacts.
