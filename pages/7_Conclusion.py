@@ -69,6 +69,7 @@ with r1c1:
     )
 
 with r1c2:
+    ASSETS_DIR = Path(__file__).parent.parent / "assets"
     etl_path = ASSETS_DIR / "ETL.png"
 
     if etl_path.exists():
