@@ -51,7 +51,7 @@ with col_right:
 
     st.markdown("<div style='margin-top:20px'></div>", unsafe_allow_html=True)
 
-    if geo_path.exists():
+    if paris_path.exists():
         st.image(str(paris_path), use_container_width=True)
     else:
         st.warning("Image not found. Place paris_housing.png in the assets/ folder.")
