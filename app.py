@@ -53,7 +53,7 @@ with col_right:
         st.image(str(paris_path), use_container_width=True)
     else:
         st.warning("Image not found. Place paris_housing.png in the assets/ folder.")
-    st.caption("Free image by Andreas Weilguny on <a href="https://unsplash.com/photos/parisian-street-with-ornate-buildings-and-clear-sky-PwA9bD-jvuE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> (2025")
+    st.caption("Free image by Andreas Weilguny accessed via Unsplash (2025)")
       
     
 
