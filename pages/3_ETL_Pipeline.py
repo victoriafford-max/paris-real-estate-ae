@@ -8,7 +8,8 @@ st.title("ETL / ELT Pipeline")
 st.markdown("From raw open data to an analytics-ready Star Schema in Snowflake")
 st.markdown("---")
 
-# Pipeline overview image (replaces the text box)
+# Pipeline overview image
+st.subheader("Pipeline Overview")
 pipeline_img = Path("assets/pipeline_overview.png")
 if pipeline_img.exists():
     st.image(str(pipeline_img), use_container_width=True)
