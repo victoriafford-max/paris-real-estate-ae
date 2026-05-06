@@ -162,6 +162,6 @@ with tab4:
 
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("ok (clean)", "37,720", "97.8%")
-    col2.metric("price_per_sqm_high", "537", "Likely institutional", delta_color="off")
-    col3.metric("surface_too_small", "196", "< 9 m²: likely parking", delta_color="off")
-    col4.metric("high_room_count", "98", "> 20 rooms: likely building", delta_color="off")
+    col2.metric("price_per_sqm_high", "537", "Likely institutional", delta_color="off", delta_arrow="off")
+    col3.metric("surface_too_small", "196", "< 9 m²: likely parking", delta_color="off", delta_arrow="off")
+    col4.metric("high_room_count", "98", "> 20 rooms: likely building", delta_color="off", delta_arrow="off")
