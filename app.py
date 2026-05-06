@@ -46,7 +46,7 @@ green-space availability across Paris.**
     """)
 
 with col_right:
-    ASSETS_DIR = Path(__file__).parent.parent / "assets"
+    ASSETS_DIR = Path(__file__).parent / "assets"
     paris_path = ASSETS_DIR / "paris.png"
     st.markdown(str(ASSETS_DIR))
     st.markdown("<div style='margin-top:20px'></div>", unsafe_allow_html=True)
