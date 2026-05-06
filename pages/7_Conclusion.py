@@ -78,7 +78,6 @@ with r1c2:
         else:
             st.warning("Image not found. Place ETL.png in the assets/ folder.")
 
-
 with r2c1:
     st.markdown(
         """
