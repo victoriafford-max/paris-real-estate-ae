@@ -22,7 +22,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown(
         """
-        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-bottom:12px;">
+        <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-bottom:12px; background-color:#F2F2F7">
         <strong>01 · DVF: Demandes de Valeurs Foncières</strong><br>
         <span style="color:#6b7280; font-size:0.85rem;">data.gouv.fr · Updated every 6 months</span><br><br>
         Official French government dataset of all declared real estate transactions.
