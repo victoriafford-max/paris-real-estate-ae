@@ -83,7 +83,7 @@ with tab2:
 with tab3:
     # Schema diagram
     st.subheader("Star Schema Diagram")
-    st.caption("Diagram includes an optional spatial layer (dim_green_spaces) for future PostGIS integration")
+    st.caption("Diagram includes a spatial layer (dim_green_spaces) for potential future integration.")
 
     schema_path = ASSETS_DIR / "star_schema.png"
     if schema_path.exists():
