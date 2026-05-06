@@ -1,27 +1,23 @@
 import streamlit as st
+from pathlib import Path
 
 st.set_page_config(page_title="ETL Pipeline", page_icon="⚙️", layout="wide")
 
-# Header 
+# Header
 st.title("ETL / ELT Pipeline")
 st.markdown("From raw open data to an analytics-ready Star Schema in Snowflake")
 st.markdown("---")
 
-# Core finding 
-st.markdown(
-    """
-    <div style="background:#f0f4ff; border-left:5px solid #3b6fd4; padding:16px 20px; border-radius:6px; margin-bottom:24px;">
-    <strong>Pipeline Overview</strong><br>
-    <span style="font-size:0.97rem; color:#1f2937;">
-    Raw CSV files and API data → Google Colab (clean &amp; transform) → Snowflake internal Stage →
-    PUBLIC schema (raw tables via COPY INTO) → STAR schema
-    </span>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+# Pipeline overview image (replaces the text box)
+pipeline_img = Path("assets/pipeline_overview.png")
+if pipeline_img.exists():
+    st.image(str(pipeline_img), use_container_width=True)
+else:
+    st.warning("Pipeline overview image not found. Expected: assets/pipeline_overview.png")
 
-# Pipeline steps 
+st.markdown("---")
+
+# Pipeline steps
 st.subheader("Pipeline Steps")
 
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -39,7 +35,8 @@ were retrieved via the **opendata.paris.fr API** using Python requests in Google
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("**DVF: direct CSV download**")
-        st.code("""import pandas as pd
+        with st.expander("Show code"):
+            st.code("""import pandas as pd
 
 # DVF data from data.gouv.fr
 url = (
@@ -54,7 +51,8 @@ print(f"Loaded: {len(df):,} rows")""", language="python")
 
     with col2:
         st.markdown("**Rent Control: API pagination**")
-        st.code("""import requests
+        with st.expander("Show code"):
+            st.code("""import requests
 
 base = "https://opendata.paris.fr/api/explore/v2.1"
 url  = f"{base}/catalog/datasets/encadrement-loyers-paris/records"
@@ -78,7 +76,18 @@ to **one row per transaction**, geocodes addresses via the Géoplateforme API,
 computes price per m², and applies data quality flags.
     """)
 
-    st.code("""# Step 1: Deduplicate and build composite transaction key
+    st.markdown("""
+**Steps applied in sequence:**
+
+1. **Deduplicate and build composite transaction key** — construct a unique key from year, date, commune, section, plot number, and transaction number
+2. **Sort by property type priority** — Apartment first, so the primary type survives aggregation
+3. **Aggregate to 1 row per transaction** — `groupby` on the composite key, take first value per field
+4. **Sum surface area + room count** — residential lots only (Apartment / House), summed separately and merged back
+5. **Apply data quality flags** — flag records with price/m² > 30,000, surface area < 9 m², or room count > 20
+    """)
+
+    with st.expander("Show full transformation code"):
+        st.code("""# Step 1: Deduplicate and build composite transaction key
 COMPOSITE_KEY = [
     'year', 'transaction_date', 'commune_code',
     'section', 'plot_number', 'transaction_number'
@@ -135,7 +144,9 @@ raw tables in the PUBLIC schema via `COPY INTO`.
 
     col1, col2 = st.columns(2)
     with col1:
-        st.code("""-- Create internal stage
+        st.markdown("**Stage + file format setup**")
+        with st.expander("Show code"):
+            st.code("""-- Create internal stage
 CREATE STAGE IF NOT EXISTS project_stage
     DIRECTORY = (ENABLE = true);
 
@@ -147,7 +158,9 @@ CREATE FILE FORMAT CLASSIC_CSV
     NULL_IF = ('\\\\N');""", language="sql")
 
     with col2:
-        st.code("""-- Load DVF data
+        st.markdown("**COPY INTO raw tables**")
+        with st.expander("Show code"):
+            st.code("""-- Load DVF data
 COPY INTO PARIS_REALESTATE.PUBLIC.DVF_AGGREGATED
 FROM @PARIS_REALESTATE.STAR.PROJECT_STAGE
      /dvf_paris_2025_aggregated.csv
@@ -171,7 +184,8 @@ with tab4:
 The dimensions are loaded first, then `FACT_TRANSACTION` with FK lookups.
     """)
 
-    st.code("""-- DIM_ARRONDISSEMENT: aggregate green space metrics on the fly
+    with st.expander("Show code — DIM_ARRONDISSEMENT example"):
+        st.code("""-- DIM_ARRONDISSEMENT: aggregate green space metrics on the fly
 INSERT INTO PARIS_REALESTATE.STAR.DIM_ARRONDISSEMENT (
     arrondissement_id, arrondissement_number, arrondissement_name,
     green_space_count, total_green_area_m2, planned_projects, total_added_green_m2
@@ -203,39 +217,12 @@ LEFT JOIN gs_agg  gs  ON gs.arrondissement_id  = a.arrondissement_id
 LEFT JOIN pgs_agg pgs ON pgs.arrondissement_id = a.arrondissement_id;""", language="sql")
 
     st.markdown("---")
-    
-# Implementation summary
+
+# Implementation Summary
 st.subheader("Implementation Summary")
 
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.markdown(
-        """
-        <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px;">
-        <strong>Platform</strong><br>
-        Snowflake <br>
-        Database: PARIS_REALESTATE<br>
-        Schemas: PUBLIC (raw) + STAR (final)
-        </div>
-        """, unsafe_allow_html=True,
-    )
-with col2:
-    st.markdown(
-        """
-        <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px;">
-        <strong>Tables loaded</strong><br> 
-        DIM_DATE <br> DIM_LOCATION <br>
-        DIM_ARRONDISSEMENT  DIM_PROPERTY_TYPE <br> DIM_QUARTER <br> 
-        FACT_TRANSACTION 
-        </div>
-        """, unsafe_allow_html=True,
-    )
-with col3:
-    st.markdown(
-        """
-        <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px;">
-        <strong>Known limitation</strong><br>
-        Green-spaces spatial integration pending.
-        </div>
-        """, unsafe_allow_html=True,
-    )
+summary_img = Path("assets/implementation_summary.png")
+if summary_img.exists():
+    st.image(str(summary_img), use_container_width=True)
+else:
+    st.warning("Implementation summary image not found. Expected: assets/implementation_summary.png")
