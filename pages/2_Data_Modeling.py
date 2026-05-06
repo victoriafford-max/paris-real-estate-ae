@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 
-st.set_page_config(page_title="Data Modeling", layout="wide")
+st.set_page_config(page_title="Data Modeling", page_icon=":hammer_and_wrench:", layout="wide")
 
 ASSETS_DIR = Path(__file__).parent.parent / "assets"
 
