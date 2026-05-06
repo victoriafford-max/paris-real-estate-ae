@@ -52,12 +52,16 @@ st.markdown("---")
 
 st.header("Challenges and solutions looking forward")
 
+
+
 r1c1, r1c2 = st.columns(2)
 r2c1, r2c2 = st.columns(2)
 
 with r1c1:
     st.markdown(
         """
+        <br>
+        <br>
         <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px;">
         <strong>Manual steps slow pipeline and increase error risk</strong><br>
         <span style="color:#6b7280; font-size:0.9rem;">
@@ -94,7 +98,7 @@ with r2c1:
     )
 
 with r2c2:
-    geo_path= ASSETS_DIR / "geo.png"
+    geo_path= ASSETS_DIR / "geo.webp"
     if geo_path.exists():
         st.image(str(geo_path), use_container_width=True)
     else:
