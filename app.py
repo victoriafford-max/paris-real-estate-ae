@@ -52,10 +52,10 @@ with col_right:
     st.markdown("<div style='margin-top:20px'></div>", unsafe_allow_html=True)
 
     if paris_path.exists():
-        st.image(str(paris_path), use_container_width=True)
+        st.image("assets/paris.png", use_container_width=True)
     else:
         st.warning("Image not found. Place paris.png in the assets/ folder.")
-    st.caption("Free image by Andreas Weilguny accessed via Unsplash (2025)")
+    st.caption("Andreas Weilguny, Unsplash (2025)")
       
     
 
