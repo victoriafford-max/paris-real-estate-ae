@@ -81,8 +81,6 @@ with tab2:
 # TAB 3 — Schema + Tables
 # -------------------------
 with tab3:
-    st.markdown("---")
-
     # Schema diagram
     st.subheader("Star Schema Diagram")
     st.caption("Diagram includes an optional spatial layer (dim_green_spaces) for future PostGIS integration")
@@ -155,8 +153,6 @@ with tab3:
 # TAB 4 — Data Quality
 # -------------------------
 with tab4:
-    st.markdown("---")
-
     st.subheader("Data Quality Flags")
     st.markdown("""
     A `data_quality_flag` column in FACT_TRANSACTION marks suspicious records.
