@@ -78,9 +78,9 @@ with r1c2:
         <br>
         <p> 🛠  One significant challenge we faced is how to integrate geographic data into our schema. Since the relationships between variables are spacial, a traditional primary key / foreign key relationship isn't applicable.
         
-        <p> ✅  Since the scope of our project didn't require a full geospatial schema, our hybrid star model sufficed.
+        <p> ✅  Since the scope of our project didn't require a full geospatial schema, our simplified hybrid star model sufficed.
         
-        <p> 💡 Looking forward, if the further development of a geospatial layer is key aspect of the analysis, working with PostgreSQL and PostGIS would be a more suitable option.
+        <p> 💡  To further develop the geospatial layer, one could create a non-relational database for the geospatial table elements. Along with other providers, Snowflake also supports storing and querying geospatial formats.
         </span>
         </div>
         """, unsafe_allow_html=True,
