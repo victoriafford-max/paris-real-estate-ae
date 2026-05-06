@@ -51,7 +51,7 @@ with col1:
     """)
 with col2:
     st.info("""
-        **The most expensive living areas aren't the most green**: 
+        **The most expensive living areas aren't the most green**: \n
         Location and centrality are stronger price drivers, while green spaces provide useful additional context.
         """)
     
