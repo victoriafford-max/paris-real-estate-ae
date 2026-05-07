@@ -83,7 +83,7 @@ with q1:
     st.markdown(
         """
         <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px; margin-bottom:12px;">
-        <strong>Price vs. Rent Control</strong><br>
+        <strong>Property Prices & Rent Control</strong><br>
         How do actual transaction prices per m² compare to the legal rent control values across Paris?
         </div>
         """,
@@ -93,7 +93,7 @@ with q2:
     st.markdown(
         """
         <div style="background:#f8f9fa; border-radius:8px; padding:14px 18px; margin-bottom:12px;">
-        <strong>Green Space & Property Values</strong><br>
+        <strong>Property Prices & Green Spaces</strong><br>
         Is there a measurable relationship between green-space coverage and property prices
         at the arrondissement level?
         </div>
@@ -105,7 +105,7 @@ with q2:
 st.markdown("---")
 
 # ── Table of Contents ─────────────────────────────────────────────
-st.header("Project Contents")
+st.subheader("Project Contents")
 
 # Row 1
 col1, col2 = st.columns(2)
