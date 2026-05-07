@@ -320,11 +320,11 @@ st.markdown("---")
 st.header("Observations & Insights")
 
 st.info("""
-**Classic case of supply & demand**: Reference rents tend to be higher for 1-room properties, reflecting high demand for small, more affordable units in the city, e.g. for students or tourists.
+**Classic case of supply & demand**: Reference rents tend to be higher for 1-room properties, reflecting high demand for small units in the city, e.g. for students or tourists.
 
 **Owners hold on to smaller properties in popular areas**: Properties with higher reference rents tend to have lower transaction volumes. In the case of 1-room properties, this may reflect a preference for holding onto smaller units rather than selling them. On the other hand, higher transaction volumes can indicate a more active and liquid real estate market.
 
-**Low reference Rents are connected to low property prices, but other factors count**: 
+**Low reference rents are connected to low property prices, but other factors count**: 
 Overall, we see that we see that lower reference rents are connected to lower property prices, but there is a lot of overlap in property prices across levels. This suggests that factors beyond rent control heavily influence property values (such as location).
 """)
 
