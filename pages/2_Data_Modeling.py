@@ -135,7 +135,7 @@ with tab3:
             </div>
 
             <div style="border:1px solid #e5e7eb; border-radius:8px; padding:16px; margin-bottom:12px;">
-            <strong>DIM_QUARTER</strong><br>
+            <strong>DIM_RENT_CONTROL</strong><br>
             One row per rent-control quartier. Contains zone_id, quarter_name, and the
             aggregated rent thresholds: avg_reference_rent, rent_band_min, rent_band_max.
             </div>
