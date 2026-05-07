@@ -114,12 +114,12 @@ with col1:
     st.markdown(
         """
         <div style="
-            border:1px solid #e5e7eb;
+            border:1px solid #f8f9fa;
             border-radius:10px;
             padding:22px;
             margin-bottom:20px;
             line-height:1.6;
-            background-color:#F2F2F7;
+            background-color:#f8f9fa;
         ">
         <strong style="font-size:1.05rem;">① Introduction</strong><br>
 
@@ -135,12 +135,12 @@ with col2:
     st.markdown(
         """
         <div style="
-            border:1px solid #e5e7eb;
+            border:1px solid #f8f9fa;
             border-radius:10px;
             padding:22px;
             margin-bottom:20px;
             line-height:1.6;
-            background-color:#F2F2F7;
+            background-color:#f8f9fa;
         ">
         <strong style="font-size:1.05rem;">② Data Sources</strong><br>
 
@@ -159,12 +159,12 @@ with col3:
     st.markdown(
         """
         <div style="
-            border:1px solid #e5e7eb;
+            border:1px solid #f8f9fa;
             border-radius:10px;
             padding:22px;
             margin-bottom:20px;
             line-height:1.6;
-            background-color:#F2F2F7;
+            background-color:#f8f9fa;
         ">
         <strong style="font-size:1.05rem;">③ Data Modeling</strong><br>
 
@@ -180,12 +180,12 @@ with col4:
     st.markdown(
         """
         <div style="
-            border:1px solid #e5e7eb;
+            border:1px solid #f8f9fa;
             border-radius:10px;
             padding:22px;
             margin-bottom:20px;
             line-height:1.6;
-            background-color:#F2F2F7;
+            background-color:#f8f9fa;
         ">
         <strong style="font-size:1.05rem;">④ ETL Pipeline</strong><br>
 
@@ -204,12 +204,12 @@ with col5:
     st.markdown(
         """
         <div style="
-            border:1px solid #e5e7eb;
+            border:1px solid #f8f9fa;
             border-radius:10px;
             padding:22px;
             margin-bottom:20px;
             line-height:1.6;
-            background-color:#F2F2F7;
+            background-color:#f8f9fa;
         ">
         <strong style="font-size:1.05rem;">⑤ Analysis</strong><br>
 
@@ -225,12 +225,12 @@ with col6:
     st.markdown(
         """
         <div style="
-            border:1px solid #e5e7eb;
+            border:1px solid #f8f9fa;
             border-radius:10px;
             padding:22px;
             margin-bottom:20px;
             line-height:1.6;
-            background-color:#F2F2F7;
+            background-color:#f8f9fa;
         ">
         <strong style="font-size:1.05rem;">⑥ Conclusion</strong><br>
 
