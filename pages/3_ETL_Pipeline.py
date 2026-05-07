@@ -87,7 +87,7 @@ computes price per m², and applies data quality flags.
 5. **Apply data quality flags** — flag records with price/m² > 30,000, surface area < 9 m², or room count > 20
     """)
 
-    with st.expander("Show full transformation code"):
+    with st.expander("Show transformation code"):
         st.code("""# Step 1: Deduplicate and build composite transaction key
 COMPOSITE_KEY = [
     'year', 'transaction_date', 'commune_code',
