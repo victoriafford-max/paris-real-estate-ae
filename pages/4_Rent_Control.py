@@ -204,7 +204,9 @@ fig0.update_traces(
 
 st.header("How do median transaction prices per m² compare to reference rent values?")
 st.caption("""
-Each point represents the median reference rent by quarter and room count, sized by the number of transactions. The color gradient indicates median price levels. Filtering for a specific **number of rooms** more clearly shows the relationship between the two variables.
+Each point represents the median reference rent by quarter and room count, sized by the number of transactions. 
+The color gradient indicates median price levels. Here we see that **median prices increase with reference rent**.
+Filtering for a specific **number of rooms** more clearly shows the relationship between the two variables.
 """)
 
 # Create figure
